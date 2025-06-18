@@ -1,4 +1,5 @@
 # from subject import subject
+from contacts import contacts
 subjects = ["English", "Maths", "Physics", "Chemistry", "Commerce", "Economics", "Literature"]
 # chosen_subjects = subject(subjects)
 def subject(subjects):
@@ -33,28 +34,14 @@ def add_student(students):
         print("Age must be a number.")
         return
     age = int(age)
-    counter = 0
-    guardian_email = ""
-    while counter < 3:
-        guardian_email = input("Enter your guardian email: ")
-        if not guardian_email:
-            print("Guardian email is compulsory.")
-        elif "@" not in guardian_email or "." not in guardian_email:
-            print("Invalid guardian email format.")
-        else:
-            print(f"Guardian email: {guardian_email} is valid.")
-            break
-        counter += 1
-    else:
-        print("Too many invalid attempts. Student not added.")
-        return
-
-    personal_email = input("Enter your personal email: ")
-    guardian_phone = input("Enter your guardian phone (compulsory): ")
-    if not guardian_phone:
-        print("Guardian phone is compulsory.")
+    if age < 5 or age > 100:
+        print("Age must be between 5 and 100.")
         return
     
+    
+    guardian_email, personal_email,guardian_phone = contacts(students)
+    if guardian_email is None or personal_email is None:
+        return  # Abort if email input failed
     personal_phone = input("Enter your personal phone (compulsory): ")
     print("\n Chose your subjects from the list below:")
     subject(subjects)    
