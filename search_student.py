@@ -12,7 +12,7 @@ def search_student(students):
                 f"{'Personal Email'.ljust(18)}: {student['personal_email']}\n"
                 f"{'Guardian Phone'.ljust(18)}: {student['guardian_phone']}\n"
                 f"{'Personal Phone'.ljust(18)}: {student['personal_phone']}\n"
-                f"{'Subjects'.ljust(18)}: {', '.join(student.get('subjects', []))}"
+                f"{'Subjects'.ljust(18)}: {', '.join(student.get('chosen_subjects', []))}"
         )
 
             return student

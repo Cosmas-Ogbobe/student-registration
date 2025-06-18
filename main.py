@@ -2,7 +2,7 @@
 from add_student import add_student
 from search_student import search_student
 from edit_student import edit_student
-from users_details import student_details
+from users_details import print_student_details
 
 students = []
 
