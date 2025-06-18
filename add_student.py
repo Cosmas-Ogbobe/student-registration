@@ -12,9 +12,28 @@ def add_student(students):
         print("Age must be a number.")
         return
     age = int(age)
-    guardian_email = input("Enter your guardian email: ")
+    counter = 0
+    guardian_email = ""
+    while counter < 3:
+        guardian_email = input("Enter your guardian email: ")
+        if not guardian_email:
+            print("Guardian email is compulsory.")
+        elif "@" not in guardian_email or "." not in guardian_email:
+            print("Invalid guardian email format.")
+        else:
+            print(f"Guardian email: {guardian_email} is valid.")
+            break
+        counter += 1
+    else:
+        print("Too many invalid attempts. Student not added.")
+        return
+
     personal_email = input("Enter your personal email: ")
     guardian_phone = input("Enter your guardian phone (compulsory): ")
+    if not guardian_phone:
+        print("Guardian phone is compulsory.")
+        return
+    
     personal_phone = input("Enter your personal phone (compulsory): ")
     print("\n Chose your subjects from the list below:")
     subject(subjects)    
